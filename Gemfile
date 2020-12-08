@@ -28,6 +28,7 @@ gem 'sewing_kit', '>= 0.127.0'
 gem 'quilt_rails', '>= 3.4.0'
 gem 'sorbet-runtime'
 gem 'graphql'
+gem 'active_model_serializers'
 
 source 'https://packages.shopify.io/shopify/gems' do
   gem 'monorail'

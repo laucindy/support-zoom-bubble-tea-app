@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StoreTest < ActiveSupport::TestCase
   def setup
-    @store = Store.new(name: "Chatime", address: "132 Dundas St W", city: "Toronto", brand: "Chatime", owner_id: 1)
+    @store = stores(:chatime_toronto)
   end
 
   test "should be valid" do
