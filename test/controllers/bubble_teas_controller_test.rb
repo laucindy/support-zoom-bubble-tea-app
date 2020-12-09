@@ -3,7 +3,6 @@ require 'test_helper'
 class BubbleTeasControllerTest < ActionDispatch::IntegrationTest
   def setup
     @regular_drink = bubble_teas(:hk_milk_tea_regular)
-    @large_drink = bubble_teas(:hk_milk_tea_large)
   end
 
   test "test index" do

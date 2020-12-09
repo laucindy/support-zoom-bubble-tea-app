@@ -100,6 +100,8 @@ GEM
     dnsruby (1.61.5)
       simpleidn (~> 0.1)
     erubi (1.10.0)
+    faker (2.15.1)
+      i18n (>= 1.6, < 2)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -382,6 +384,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  faker
   graphql
   jbuilder (~> 2.7)
   kafka-shopify!

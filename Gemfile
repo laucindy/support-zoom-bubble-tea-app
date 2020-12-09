@@ -29,6 +29,7 @@ gem 'quilt_rails', '>= 3.4.0'
 gem 'sorbet-runtime'
 gem 'graphql'
 gem 'active_model_serializers'
+gem 'faker'
 
 source 'https://packages.shopify.io/shopify/gems' do
   gem 'monorail'
