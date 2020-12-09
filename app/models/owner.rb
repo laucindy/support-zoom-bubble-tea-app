@@ -6,4 +6,8 @@ class Owner < ApplicationRecord
   def stores_count
     self.stores.count
   end
+
+  def list_stores
+    self.stores
+  end
 end
