@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+chatime_toronto:
+  name: Chatime
+  address: 132 Dundas St W
+  city: Toronto
+  brand: Chatime
+  owner: john
+
+the_alley_ottawa:
+  name: The Alley
+  address: 123 Test Street
+  city: Ottawa
+  brand: The Alley
+  owner: jane
