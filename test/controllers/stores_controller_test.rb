@@ -13,7 +13,28 @@ class StoresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "test show specific store" do
-    expected_response = { "id" => @store.id, "name" => "Chatime", "address" => "132 Dundas St W", "city" => "Toronto", "brand" => "Chatime", "owner" => { "name" => "John Smith" } }
+    expected_response = {
+      "id" => @store.id,
+      "name" => "Chatime",
+      "address" => "132 Dundas St W",
+      "city" => "Toronto",
+      "brand" => "Chatime",
+      "owner" => { "name" => "John Smith" },
+      "bubble_teas" => [
+        {
+          "id" => bubble_teas(:hk_milk_tea_regular).id,
+          "flavor" => "HK Milk Tea",
+          "size" => "Regular",
+          "price" => 7.99
+        },
+        {
+          "id" => bubble_teas(:hk_milk_tea_large).id,
+          "flavor" => "HK Milk Tea",
+          "size" => "Large",
+          "price" => 8.99
+        }
+      ]
+    }
 
     get store_path(@store), as: :json
     assert_response :success

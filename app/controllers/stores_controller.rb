@@ -17,7 +17,7 @@ class StoresController < ApplicationController
 
     if @store.save
       # successful store creation
-      render plain: "Successfully saved store!"
+      render json: @store
     else
       render plain: "Failed to save store."
     end
@@ -28,7 +28,7 @@ class StoresController < ApplicationController
     @store = Store.find(params[:id])
 
     if @store.update(store_params)
-      render plain: "Successfully updated store information!"
+      render json: @store.as_json(except: [:bubble_teas, :created_at, :updated_at])
     else
       render plain: "Failed to update store information"
     end
@@ -39,6 +39,16 @@ class StoresController < ApplicationController
     store_id = params[:id]
     Store.find(store_id).destroy
     render plain: "Deleted store with id #{store_id}"
+  end
+
+  def owner
+    store = Store.find(params[:id])
+    render json: store.owner.name
+  end
+
+  def bubble_teas
+    store = Store.find(params[:id])
+    render json: store.bubble_teas
   end
 
   private

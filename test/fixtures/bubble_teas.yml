@@ -4,8 +4,10 @@ hk_milk_tea_regular:
   flavor: HK Milk Tea
   size: Regular
   price: 7.99
+  store: chatime_toronto
 
 hk_milk_tea_large:
   flavor: HK Milk Tea
   size: Large
   price: 8.99
+  store: chatime_toronto

@@ -51,35 +51,41 @@ end
 BubbleTea.create!(
   flavor: "HK Milk Tea",
   size: "Regular",
-  price: 7.99
+  price: 7.99,
+  store_id: 1
 )
 
 BubbleTea.create!(
   flavor: "HK Milk Tea",
   size: "Large",
-  price: 8.99
+  price: 8.99,
+  store_id: 1
 )
 
 BubbleTea.create!(
   flavor: "Matcha Latte",
   size: "Regular",
-  price: 6.49
+  price: 6.49,
+  store_id: 2
 )
 
 BubbleTea.create!(
   flavor: "Matcha Latte",
   size: "Large",
-  price: 7.49
+  price: 7.49,
+  store_id: 2
 )
 
 # use coffee blend names instead, as the faker gem doesn't include bubble tea names
-46.times do
+100.times do
   drink_size = ["Regular", "Large"].sample
   drink_price = ((Faker::Number.between(from: 6, to: 10)).to_s + "." + (Faker::Number.number(digits: 2)).to_s).to_f
+  random_store = rand(1..50)
 
   BubbleTea.create!(
     flavor: Faker::Coffee.blend_name,
     size: drink_size,
-    price: drink_price
+    price: drink_price,
+    store_id: random_store
   )
 end

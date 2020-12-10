@@ -1,20 +1,143 @@
 # Support Zoom Rails Bubble Tea App
 
-TODO: Add an application description
+Built a Rails app for looking up bubble tea stores in any city.
 
-## Getting started
+# API Usage
 
-Read the [GETTING STARTED](GETTING_STARTED.md) document for help developing with the Shopify Rails Stack. Run the following:
+Run the server (using `dev server`), and use something like [Postman](https://www.postman.com/) to make API calls.
 
-- Clone the repo with `dev clone support_zoom_rails_bubble_tea_app`
-- Run `dev up` to install dependencies
-- Start the development server via `dev server`
-- Open the server with `Ctrl+T`
+## Owners
 
-## Integrations
+#### GET `/owners` 
 
-- [Shopify Build](https://buildkite.com/shopify/support_zoom_rails_bubble_tea_app)
-- [Shipit](https://shipit.shopify.io/shopify/support_zoom_rails_bubble_tea_app/production)
-- [Cloud Portal](https://cloud-portal-tier2.shopifycloud.com/namespaces/support_zoom_rails_bubble_tea_app-production/workloads)
-- [Splunk](https://logs.shopify.io/en-US/app/search/search?q=search%20application%3D%22support_zoom_rails_bubble_tea_app-production%22)
-- [Bugsnag](https://app.bugsnag.com/shopify/support_zoom_rails_bubble_tea_app/errors)
+View all owners of a bubble tea store, and a list of stores that they own.
+
+<details>
+<summary>Example response</summary>
+
+![](https://screenshot.click/09-27-5riei-ce3sd.jpg)
+</details>
+
+#### GET `owners/:id`
+
+View all stores that belong to a specific owner 
+
+<details>
+<summary>Example response</summary>
+
+![](https://screenshot.click/09-30-82v73-b4zjk.jpg)
+</details>
+
+## Store
+
+#### GET `/stores`
+
+View all stores, and their details (location, owner, etc)
+
+<details>
+<summary>Example response</summary>
+
+![](https://screenshot.click/09-33-2zvwr-f22dg.jpg)
+</details>
+
+#### GET `/stores/:id`
+
+View a specific store and its details
+
+<details>
+<summary>Example response</summary>
+
+![](https://screenshot.click/09-34-26945-hchk9.jpg)
+</details>
+
+#### POST `/stores`
+
+Create a new store, and associate it with an existing owner
+
+<details>
+<summary>Example input and response</summary>
+
+![](https://screenshot.click/09-35-yv0h3-t2pvx.jpg)
+</details>
+
+#### PATCH `/stores/:id`
+
+Modify an existing store's attribute(s)
+
+<details>
+<summary>Example input and response</summary>
+
+![](https://screenshot.click/09-37-sxp4w-b855f.jpg)
+</details>
+
+#### DELETE `/stores/:id`
+
+Delete an existing store
+
+<details>
+<summary>Example response</summary>
+
+Delete store with `id = 51`:
+
+![](https://screenshot.click/09-38-tr9ik-b88c2.jpg)
+</details>
+
+
+
+
+
+
+
+
+
+## Bubble Tea
+
+#### GET `/bubble_teas`
+
+View all bubble tea drinks, and their details (flavor, size, price)
+
+<details>
+<summary>Example response</summary>
+
+![](https://screenshot.click/09-40-l3t1e-azqgc.jpg)
+</details>
+
+#### GET `/bubble_teas/:id`
+
+View a specific bubble tea drink and its details
+
+<details>
+<summary>Example response</summary>
+
+![](https://screenshot.click/09-42-79tug-7a034.jpg)
+</details>
+
+#### POST `/bubble_teas`
+
+Create a new bubble tea
+
+<details>
+<summary>Example input and response</summary>
+
+![](https://screenshot.click/09-51-qckyp-taggu.jpg)
+</details>
+
+#### PATCH `/bubble_teas/:id`
+
+Modify an existing bubble tea's attribute(s)
+
+<details>
+<summary>Example input and response</summary>
+
+![](https://screenshot.click/09-49-zsrmo-2n0ey.jpg)
+</details>
+
+#### DELETE `/bubble_teas/:id`
+
+Delete an existing store
+
+<details>
+<summary>Example response</summary>
+
+![](https://screenshot.click/09-51-dsdu3-nu255.jpg)
+</details>

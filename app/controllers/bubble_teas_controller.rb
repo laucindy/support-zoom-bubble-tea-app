@@ -13,11 +13,12 @@ class BubbleTeasController < ApplicationController
 
   # create a new bubble tea drink
   def create
+    params[:bubble_tea][:store_id] = params[:id] unless params[:bubble_tea][:store_id].present?
     @bubble_tea = BubbleTea.new(bubble_tea_params)
 
     if @bubble_tea.save
       # successful bubble tea drink creation
-      render plain: "Successfully saved drink!"
+      render json: @bubble_tea
     else
       render plain: "Failed to save drink."
     end
@@ -28,7 +29,7 @@ class BubbleTeasController < ApplicationController
     @bubble_tea = BubbleTea.find(params[:id])
 
     if @bubble_tea.update(bubble_tea_params)
-      render plain: "Successfully updated drink information!"
+      render json: @bubble_tea
     else
       render plain: "Failed to update drink information"
     end
@@ -45,6 +46,6 @@ class BubbleTeasController < ApplicationController
   private
 
   def bubble_tea_params
-    params.require(:bubble_tea).permit(:flavor, :size, :price)
+    params.require(:bubble_tea).permit(:flavor, :size, :price, :store_id)
   end
 end
