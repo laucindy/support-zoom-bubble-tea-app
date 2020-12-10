@@ -5,13 +5,13 @@ class OwnersControllerTest < ActionDispatch::IntegrationTest
     @owner = owners(:john)
   end
 
-  test "test index" do
+  test "index page shows correct total" do
     get owners_path
     assert_response :success
     assert_equal 2, Owner.all.count
   end
 
-  test "test show specific owner" do
+  test "successfully shows specific owner" do
     expected_response = {
       "name"=>"John Smith",
       "stores"=>[

@@ -6,13 +6,13 @@ class BubbleTeasControllerTest < ActionDispatch::IntegrationTest
     @chatime_toronto = stores(:chatime_toronto)
   end
 
-  test "test index" do
-    get bubble_teas_path
+  test "index page shows correct total" do
+    get bubble_teas_path(@chatime_toronto)
     assert_response :success
     assert_equal 2, BubbleTea.all.count
   end
 
-  test "test show specific drink" do
+  test "successfully shows specific drink" do
     expected_response = {
       "id" => @regular_drink.id,
       "flavor" => "HK Milk Tea",
@@ -31,20 +31,20 @@ class BubbleTeasControllerTest < ActionDispatch::IntegrationTest
     assert_equal(expected_response, response.parsed_body)
   end
 
-  test "test successfully create a new drink" do
+  test "successfully create a new drink" do
     total_drinks = BubbleTea.all.count
-    post bubble_teas_path, params: {"bubble_tea": { "flavor": "Mango Slush", "size": "Large", "price": 8.99, "store_id": @chatime_toronto.id }}
+    post bubble_teas_path(@chatime_toronto), params: {"bubble_tea": { "flavor": "Mango Slush", "size": "Large", "price": 8.99, "store_id": @chatime_toronto.id }}
     assert_response :success
     assert_equal total_drinks + 1, BubbleTea.all.count
   end
 
-  test "test sucessfully update drink" do
+  test "sucessfully update drink" do
     patch bubble_tea_path(@regular_drink), params: {"bubble_tea": { "flavor": "Mango Slush" }}
     assert_response :success
     assert_equal "Mango Slush", BubbleTea.find(@regular_drink.id).flavor
   end
 
-  test "test sucessfully delete drink" do
+  test "sucessfully delete drink" do
     total_drinks = BubbleTea.all.count
     delete bubble_tea_path(@regular_drink)
     assert_response :success

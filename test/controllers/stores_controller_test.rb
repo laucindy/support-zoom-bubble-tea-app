@@ -6,13 +6,13 @@ class StoresControllerTest < ActionDispatch::IntegrationTest
     @store = stores(:chatime_toronto)
   end
 
-  test "test index" do
+  test "index page shows correct total" do
     get stores_path
     assert_response :success
     assert_equal 2, Store.all.count
   end
 
-  test "test show specific store" do
+  test "successfully show specific store" do
     expected_response = {
       "id" => @store.id,
       "name" => "Chatime",
@@ -41,20 +41,20 @@ class StoresControllerTest < ActionDispatch::IntegrationTest
     assert_equal(expected_response, response.parsed_body)
   end
 
-  test "test successfully create a new store" do
+  test "successfully create a new store" do
     total_stores = Store.all.count
     post stores_path, params: {"store": { "name": "TP Tea", "address": "505 Hwy 7", "city": "Toronto", "brand": "TP Tea", "owner_id": owners(:john).id }}
     assert_response :success
     assert_equal total_stores + 1, Store.all.count
   end
 
-  test "test sucessfully update store" do
+  test "sucessfully update store" do
     patch store_path(@store), params: {"store": { "name": "Bubbly Tea" }}
     assert_response :success
     assert_equal "Bubbly Tea", Store.find(@store.id).name
   end
 
-  test "test sucessfully delete store" do
+  test "sucessfully delete store" do
     total_stores = Store.all.count
     delete store_path(@store)
     assert_response :success
